@@ -10,4 +10,10 @@ describe(Stop) do
     end
   end
 
+  describe('station_id') do
+    it('takes a station_id and returns the value') do
+      stop = Stop.new({:train_id => 1, :station_id => 1, :id => nil})
+      expect(stop.station_id()).to(eq(1))
+    end
+  end
 end
