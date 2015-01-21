@@ -9,7 +9,15 @@ class Stop
   end
 
   define_singleton_method(:all) do
-    @@stops
+    returned_stops = DB.exec("SELECT * FROM stop;")
+    stops = []
+    returned_stops.each() do |stop|
+      id = stop.fetch("id").to_i()
+      train_id = stop.fetch("train_id").to_i()
+      station_id = stop.fetch("station_id").to_i
+      stops.push(Stop.new({:train_id => train_id, :station_id => station_id, :id => ids}))
+    end
+    stops
   end
 
   define_method(:save) do
@@ -19,4 +27,5 @@ class Stop
   define_singleton_method(:clear) do
     @@stops = []
   end
+
 end
