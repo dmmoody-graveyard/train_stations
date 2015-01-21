@@ -11,4 +11,8 @@ class Train
   define_singleton_method(:all) do
     @@trains
   end
+
+  define_method(:save) do
+    @@trains.push(self)
+  end
 end
