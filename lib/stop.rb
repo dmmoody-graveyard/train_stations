@@ -11,5 +11,8 @@ class Stop
   define_singleton_method(:all) do
     @@stops
   end
-  
+
+  define_method(:save) do
+    @@stops.push(self)
+  end
 end
