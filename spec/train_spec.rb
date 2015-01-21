@@ -24,4 +24,12 @@ describe(Station) do
       expect(Station.all()).to(eq([station]))
     end
   end
+
+  describe("#id") do
+    it("returns the id number of a station") do
+      station = Station.new({:name => 'fifth ave', :id => nil})
+      station.save()
+      expect(station.id()).to(eq(Fixnum))
+    end
+  end
 end
