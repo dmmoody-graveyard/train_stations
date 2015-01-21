@@ -16,4 +16,12 @@ describe(Station) do
       expect(Station.all()).to(eq([]))
     end
   end
+
+  describe(".save") do
+    it("saves the station to an array of stations") do
+      station = Station.new({:name =. 'fifth ave', :id => nil})
+      Station.save()
+      expect(Station.all()).to(eq(station))
+    end
+  end
 end
