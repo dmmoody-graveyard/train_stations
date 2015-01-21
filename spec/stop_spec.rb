@@ -17,6 +17,12 @@ describe(Stop) do
     end
   end
 
+  describe('.all') do
+    it('shows empty array of all stops') do
+      expect(Stop.all()).to(eq([]))
+    end
+  end
+
   describe('#save') do
     it("saves a stop to an array of stops") do
       stop = Stop.new({:train_id => 1, :station_id => 1, :id => nil})
