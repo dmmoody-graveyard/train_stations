@@ -9,7 +9,13 @@ class Station
   end
 
   define_singleton_method(:all) do
-    @@stations
+    returned_stations = DB.exec("SELECT * FROM station;")
+    stations = []
+    returned_stations.each() do |station|
+      name = station.fetch("name")
+      stations.push(Station.new({:name => name}))
+    end
+    stations
   end
 
   define_method(:save) do
