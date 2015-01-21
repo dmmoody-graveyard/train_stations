@@ -17,9 +17,10 @@ class Train
     end
     trains
   end
-  
+
   define_method(:save) do
-    @@trains.push(self)
+    result = DB.exec("INSERT INTO train (name) VALUES ('#{@name}') RETURNING id;")
+    @id = result.first().fetch("id").to_i()
   end
 
   define_method(:==) do |another_train|

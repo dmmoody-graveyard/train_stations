@@ -21,8 +21,9 @@ class Stop
   end
 
   define_method(:save) do
-    @@stops.push(self)
-  end
+    result = DB.exec("INSERT INTO stop (train_id, station_id) VALUES ('#{@train_id}', '#{@station_id}') RETURNING id;")
+    @id = result.first().fetch("id").to_i()
+    end
 
   define_singleton_method(:clear) do
     @@stops = []
