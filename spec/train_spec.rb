@@ -27,9 +27,17 @@ describe(Station) do
 
   describe("#id") do
     it("returns the id number of a station") do
-      station = Station.new({:name => 'fifth ave', :id => nil})
+      station = Station.new({:name => 'fifth ave', :id => 1})
       station.save()
-      expect(station.id()).to(eq(Fixnum))
+      expect(station.id()).to(eq(1))
+    end
+  end
+
+  describe("#==") do
+    it('is the same station if it has the same name and id number') do
+      test_station1 = Station.new({:name => 'fifth ave', :id => 1})
+      test_station2 = Station.new({:name => 'fifth ave', :id => 1})
+      expect(test_station1).to(eq(test_station2))
     end
   end
 end
