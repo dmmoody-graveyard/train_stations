@@ -8,7 +8,7 @@ class Train
     @id = attributes.fetch(:id)
   end
 
-  define_method(:all) do
+  define_singleton_method(:all) do
     @@trains
   end
 end
