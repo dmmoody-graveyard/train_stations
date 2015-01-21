@@ -22,4 +22,12 @@ describe(Train) do
       expect(Train.all()).to(eq([]))
     end
   end
+
+  describe('#save') do
+    it("saves a train line to an array of train lines") do
+      train = Train.new({:name => 'blue line', :id => 1})
+      train.save()
+      expect(Train.all()).to(eq([train]))
+    end
+  end
 end
