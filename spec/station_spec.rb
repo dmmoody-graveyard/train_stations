@@ -1,5 +1,5 @@
 require('rspec')
-require('train')
+require('station')
 
 describe(Station) do
 
