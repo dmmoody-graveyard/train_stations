@@ -1,4 +1,5 @@
 class Station
+  @@stations = []
 
   attr_reader(:name, :id)
 
@@ -7,5 +8,7 @@ class Station
     @id = attributes.fetch(:id)
   end
 
-
+  define_singleton_method(:all) do
+    @@stations
+  end
 end
