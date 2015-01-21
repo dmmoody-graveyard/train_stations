@@ -16,4 +16,8 @@ class Station
     @@stations.push(self)
   end
 
+  define_method(:==) do |another_station|
+    self.name().==(another_station.name()).&(self.id().==(another_station.id()))
+  end
+
 end
