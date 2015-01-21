@@ -19,7 +19,8 @@ describe(Train) do
 
   describe('.all') do
     it('returns an empty array of all the trains') do
-      expect(Train.all()).to(eq([]))
+      train = Train.new({:name => 'blue line', :id => 1})
+      expect(train.all()).to(eq([]))
     end
   end
 end
