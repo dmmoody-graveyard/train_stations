@@ -1,5 +1,5 @@
-require('rspec')
-require('station')
+require('spec_helper')
+
 
 describe(Station) do
 

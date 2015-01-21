@@ -1,5 +1,5 @@
-require('rspec')
-require('train')
+require('spec_helper')
+
 
 describe(Train) do
 
