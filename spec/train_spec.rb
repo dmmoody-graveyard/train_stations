@@ -1,12 +1,12 @@
 require('rspec')
 require('train')
 
-describe(Train) do
+describe(Station) do
 
-  describe("#stations") do
+  describe("#name") do
     it("returns the name of the station") do
-      station = Train.new({:station => "fifth ave" :id => nil})
-      expect(station.fetch(:station)).to(eq("fifth ave"))
+      station = Station.new({:name => "fifth ave", :id => nil})
+      expect(station.name()).to(eq("fifth ave"))
     end
   end
 end
