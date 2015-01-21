@@ -16,4 +16,10 @@ describe(Train) do
       expect(train.id()).to(eq(1))
     end
   end
+
+  describe('.all') do
+    it('returns an empty array of all the trains') do
+      expect(Train.all()).to(eq([]))
+    end
+  end
 end
