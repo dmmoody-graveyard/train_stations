@@ -23,9 +23,9 @@ describe(Stop) do
 
   describe('#id') do
     it('takes a stop id and returns the value') do
-      stop = Stop.new({:train_id => 1, :station_id => 1, :id => nil})
+      stop = Stop.new({:train_id => 1, :station_id => 1, :id => 1})
       stop.save()
-      expect(stop.id()).to(be_an_instance_of(Fixnum))
+      expect(stop.id()).to(eq(1))
     end
   end
 
