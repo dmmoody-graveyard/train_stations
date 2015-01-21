@@ -17,11 +17,11 @@ describe(Station) do
     end
   end
 
-  describe(".save") do
+  describe("#save") do
     it("saves the station to an array of stations") do
-      station = Station.new({:name =. 'fifth ave', :id => nil})
-      Station.save()
-      expect(Station.all()).to(eq(station))
+      station = Station.new({:name => 'fifth ave', :id => nil})
+      station.save()
+      expect(Station.all()).to(eq([station]))
     end
   end
 end

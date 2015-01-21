@@ -11,4 +11,9 @@ class Station
   define_singleton_method(:all) do
     @@stations
   end
+
+  define_method(:save) do
+    @@stations.push(self)
+  end
+
 end
