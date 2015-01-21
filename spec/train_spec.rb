@@ -30,4 +30,12 @@ describe(Train) do
       expect(Train.all()).to(eq([train]))
     end
   end
+
+  describe('#==') do
+    it('is the same station if it has the same name and id number') do
+      test_train1 = Train.new({:name => 'blue line', :id => 1})
+      test_train2 = Train.new({:name => 'blue line', :id => 1})
+      expect(test_train1).to(eq(test_train2))
+    end
+  end
 end
