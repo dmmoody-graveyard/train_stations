@@ -1,5 +1,6 @@
+require('pry')
+
 class Station
-  @@stations = []
 
   attr_reader(:name, :id)
 
@@ -11,19 +12,21 @@ class Station
   define_singleton_method(:all) do
     returned_stations = DB.exec("SELECT * FROM station;")
     stations = []
-    returned_trains.each() do |station|
+    returned_stations.each() do |station|
       name = station.fetch("name")
-      stations.push(Station.new({:name => name}))
+      id = station.fetch("id").to_i()
+      stations.push(Station.new({:name => name, :id => id}))
     end
     stations
   end
 
   define_method(:save) do
-    result = DB.exec("INSERT INTO station (name) VALUES ('#{@name}') RETURNING id;")
-    @id = result.first().fetch("id").to_i()  end
-
-  define_method(:==) do |another_station|
-    self.name().==(another_station.name()).&(self.id().==(another_station.id()))
+    result = DB.exec("INSERT INTO station (name) VALUES ('#{@name}') RETURNING 'id';")
+    @id = result.first().fetch("id").to_i()
+binding.pry
   end
 
+  define_method(:==) do |another_station|
+    self.name().==(another_station.name())
+  end
 end

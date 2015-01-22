@@ -19,24 +19,24 @@ describe(Station) do
 
   describe("#save") do
     it("saves the station to an array of stations") do
-      station = Station.new({:name => 'fifth ave', :id => nil})
-      station.save()
-      expect(Station.all()).to(eq([station]))
+      test_station = Station.new({:name => 'fifth ave', :id => nil})
+      test_station.save()
+      expect(Station.all()).to(eq([test_station]))
     end
   end
 
   describe("#id") do
     it("returns the id number of a station") do
-      station = Station.new({:name => 'fifth ave', :id => 1})
+      station = Station.new({:name => 'fifth ave', :id => nil})
       station.save()
-      expect(station.id()).to(eq(1))
+      expect(station.id()).to(be_an_instance_of(Fixnum))
     end
   end
 
   describe("#==") do
-    it('is the same station if it has the same name and id number') do
-      test_station1 = Station.new({:name => 'fifth ave', :id => 1})
-      test_station2 = Station.new({:name => 'fifth ave', :id => 1})
+    it('is the same station if it has the same name') do
+      test_station1 = Station.new({:name => 'fifth ave', :id => nil})
+      test_station2 = Station.new({:name => 'fifth ave', :id => nil})
       expect(test_station1).to(eq(test_station2))
     end
   end
