@@ -10,9 +10,16 @@ describe(Station) do
     end
   end
 
+  describe("#id") do
+    it("returns the id number of a station") do
+      station = Station.new({:name => 'fifth ave', :id => nil})
+      station.save()
+      expect(station.id()).to(be_an_instance_of(Fixnum))
+    end
+  end
+
   describe(".all") do
     it('returns empty list of all station names') do
-      station = Station.new({:name => 'fifth ave', :id => nil})
       expect(Station.all()).to(eq([]))
     end
   end
@@ -22,14 +29,6 @@ describe(Station) do
       test_station = Station.new({:name => 'fifth ave', :id => nil})
       test_station.save()
       expect(Station.all()).to(eq([test_station]))
-    end
-  end
-
-  describe("#id") do
-    it("returns the id number of a station") do
-      station = Station.new({:name => 'fifth ave', :id => nil})
-      station.save()
-      expect(station.id()).to(be_an_instance_of(Fixnum))
     end
   end
 
