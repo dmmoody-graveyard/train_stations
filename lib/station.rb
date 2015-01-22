@@ -1,5 +1,3 @@
-require('pry')
-
 class Station
 
   attr_reader(:name, :id)
@@ -22,8 +20,7 @@ class Station
 
   define_method(:save) do
     result = DB.exec("INSERT INTO station (name) VALUES ('#{@name}') RETURNING 'id';")
-    @id = result.first().fetch("id").to_i()
-binding.pry
+    @id = result.first()['id'].to_i()
   end
 
   define_method(:==) do |another_station|
